@@ -3,8 +3,8 @@ def imageName = 'mask9147.jfrog.io/artifactory/mask914-docker-local-docker/sampl
 def version = '2.1.3'
 
 pipeline {
-    agent any {
-        node {
+    agent  {
+        any {
         
         }
     }
