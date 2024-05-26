@@ -6,10 +6,15 @@ pipeline {
         }
     }
     stages {
+        stage('Compile') {
+            steps {
+                sh "mvn clean compile"
+            }  
+        }
         stage('Sonar Scan') {
             steps {
-                withSonarQubeEnv('sonarserver') { 
-                    sh "mvn sonar:sonar"
+                withSonarQubeEnv('sonarserver') {
+                    sh "mvn sonar:sonar -Dsonar.java.binaries=target/classes"
                 }
             }  
         }
